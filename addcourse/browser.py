@@ -18,6 +18,7 @@
 """The browser that interacts with QUEST."""
 
 
+from .error import QuestException
 import bs4
 import urllib.request, urllib.parse, urllib.error
 import itertools
@@ -29,7 +30,6 @@ class QuestBrowser:
 
     proto = 'https'
     host = 'quest.pecs.uwaterloo.ca'
-    term = '1155'
     req = None
     password = None
 
@@ -100,7 +100,7 @@ class QuestBrowser:
         """Add key=val to the data field of self.req."""
 
         if not isinstance(self.data, dict):
-            raise Exception("Need to call self.make_request before calling self.add_form.")
+            raise QuestException("Need to call self.make_request before calling self.add_form.")
         if not isinstance(key, str):
             key = str(key)
         if not isinstance(val, str):
