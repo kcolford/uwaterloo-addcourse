@@ -19,4 +19,5 @@ setup(
     install_requires=[
         'beautifulsoup4>=4.2.0',
     ],
+    use_2to3=True,
 )
