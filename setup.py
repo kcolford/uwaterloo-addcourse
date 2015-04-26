@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 
 from setuptools import *
+from addcourse.version import __version__
 
 setup(
     name='uwaterloo-addcourse',
-    version='0.1.1',
+    version=__version__,
     author='Kieran Colford',
     author_email='colfordk@gmail.com',
     url='https://github.com/kcolford/uwaterloo-addcourse',
     license='GPLv3+',
-    packages=['addcourse'],
+    packages=find_packages(),
     entry_points={
         'console_scripts': [
             'addcourse = addcourse:main',

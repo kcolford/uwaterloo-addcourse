@@ -1,0 +1,9 @@
+# Build Directories.
+/build/
+/uwaterloo_addcourse.egg-info/
+/dist/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
