@@ -1,16 +1,11 @@
 ===================
 UWaterloo AddCourse
 ===================
-:Info: Documentation for the UWaterloo AddCourse package.
-:Author: Kieran Colford
 
 This python package allows one to easily interact with the University
 of Waterloo's QUEST_ system to easily add a course.
 
 .. _QUEST: https://uwaterloo.ca/quest/
-
-.. note:: Currently only classes that have one tutorial section can be
-   added.  Support for tutorial-less classes is in the works.
 
 Usage
 =====

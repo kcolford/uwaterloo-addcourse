@@ -37,7 +37,10 @@ class AddCourse(AddPage):
         self.do_action('DERIVED_REGFRM1_SSR_PB_ADDTOLIST2$9$',
                        {'DERIVED_REGFRM1_CLASS_NBR': classno})
 
-        if not self.page.find(text=has_class_message):
+        if self.page.find(text=has_class_message):
+            return
+    
+        if self.page.find(text=select_tut_message):
             self.register_tutorial(tutno)
 
     def register_tutorial(self, tutno=0):
@@ -124,4 +127,5 @@ def addcourse(user, password, course):
 
 
 has_class_message = 'This class is already in your Shopping Cart.  Try another.'
+select_tut_message = 'Select TUT - Tutorial section (Required):'
 repeat = 2
