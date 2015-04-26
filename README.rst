@@ -6,8 +6,8 @@ of Waterloo's QUEST_ system to easily add a course.
 
 .. _QUEST: https://uwaterloo.ca/quest/
 
-.. attention:: Currently only classes that have one tutorial section
-   can be added.  Support for tutorial-less classes is in the works.
+.. DANGER:: Currently only classes that have one tutorial section can
+   be added.  Support for tutorial-less classes is in the works.
 
 Usage
 =====
