@@ -21,10 +21,20 @@ setup(
         'uwaterloo',
         'addcourse',
     ],
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Console',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+    ],
+    platforms=['Any'],
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'addcourse = addcourse:main',
+            'addcourse = addcourse.main:main',
         ],
     },
     install_requires=[
