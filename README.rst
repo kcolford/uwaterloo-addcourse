@@ -7,8 +7,8 @@ add a course.
 
 .. _QUEST: https://uwaterloo.ca/quest/
 
-.. note:: Currently only classes that have one tutorial section can be
-   added.  Support for tutorial-less classes is in the works.
+.. attention:: Currently only classes that have one tutorial section
+   can be added.  Support for tutorial-less classes is in the works.
 
 Usage
 =====
