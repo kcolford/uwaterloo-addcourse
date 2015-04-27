@@ -34,15 +34,30 @@ from . import __version__
 def main():
     """Main function."""
 
+    descr = """Repeatedly ask QUEST to add you into a particular course."""
+    epi = """Report Bugs to the bug list on our github page at:
+    <https://github.com/kcolford/uwaterloo-addcourse/issues>"""
+
     parser = argparse.ArgumentParser(
-        description='Repeatedly ask QUEST to add you into a particular course.',
+        prog='addcourse',
+        description=descr,
+        epilog=epi,
+        fromfile_prefix_chars='@',
     )
     parser.add_argument('--version', action='version',
                         version='%(prog)s ' + __version__)
+    parser.add_argument('-c', '--course', action='store',
+                        help='the course to try getting in to')
+    parser.add_argument('-u', '--userid', action='store',
+                        help='the userid to login as')
 
     args = parser.parse_args()
 
-    course = raw_input('Desired Course: ')
-    user = raw_input('QUEST ID: ')
+    course = args['course']
+    if not course:
+        course = raw_input('Desired Course: ')
+    user = args['userid']
+    if not user:
+        user = raw_input('QUEST ID: ')
     password = getpass.getpass('Password: ')
     addcourse(user, password, course)
