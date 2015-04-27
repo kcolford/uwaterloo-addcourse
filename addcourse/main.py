@@ -21,16 +21,26 @@
 
 """The main method for this package."""
 
+import argparse
 import getpass
 try:
     import readline
 except ImportError:
     pass
 from .course_adder import addcourse
+from . import __version__
 
 
 def main():
     """Main function."""
+
+    parser = argparse.ArgumentParser(
+        description='Repeatedly ask QUEST to add you into a particular course.',
+    )
+    parser.add_argument('--version', action='version',
+                        version='%(prog)s ' + __version__)
+
+    args = parser.parse_args()
 
     course = raw_input('Desired Course: ')
     user = raw_input('QUEST ID: ')
