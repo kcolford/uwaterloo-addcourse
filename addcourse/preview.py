@@ -1,4 +1,4 @@
-# Error module.
+# Previewing HTML code in browser.
 
 # Copyright (C) 2015 Kieran Colford
 #
@@ -19,18 +19,17 @@
 # <http://www.gnu.org/licenses/>.
 
 
-"""Classes for errors."""
+import tempfile
+import time
+import webbrowser
 
 
-class Error(Exception):
-    """An error thrown from the addcourse package."""
+def preview_page(html):
+    """Preview the HTML code html in your browser."""
 
-    pass
-
-
-class BadLogin(Error):
-    """Incorrect username or password."""
-
-
-    pass
+    with tempfile.NamedTemporaryFile(mode='w+t') as f:
+        f.write(str(html))
+        f.flush()
+        webbrowser.open('file://' + f.name)
+        time.sleep(5)
 

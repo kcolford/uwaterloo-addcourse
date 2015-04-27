@@ -1,35 +1,38 @@
+# Main method.
+
 # Copyright (C) 2015 Kieran Colford
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# This file is part of UWaterloo-AddCourse.
 #
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# UWaterloo-AddCourse is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# UWaterloo-AddCourse is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see
+# along with UWaterloo-AddCourse.  If not, see
 # <http://www.gnu.org/licenses/>.
 
 
-"""The main routine used by the program."""
+"""The main method for this package."""
 
-
-from .browser import QuestBrowser
-from . import cls_numbers
 import getpass
-import readline
-import logging
+try:
+    import readline
+except ImportError:
+    pass
+from .course_adder import addcourse
 
 
 def main():
     """Main function."""
 
-    logging.getLogger().addHandle(logging.StreamHandler())
-
-    user = input('QUEST ID: ')
+    course = raw_input('Desired Course: ')
+    user = raw_input('QUEST ID: ')
     password = getpass.getpass('Password: ')
-    QuestBrowser(user, password).run(cls_numbers)
+    addcourse(user, password, course)

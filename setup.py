@@ -1,31 +1,44 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+
+"""Package for easily adding a course on UWaterloo's QUEST."""
 
 from setuptools import *
+from addcourse.version import __version__
+
+with open('README.rst') as f:
+    long_description = f.read()
 
 setup(
-    name='uwaterloo-addcourse', version='0.0.1', license='GPLv3+',
-
-    author='Kieran Colford', author_email='colfordk@gmail.com',
-
-    description=("A script to add the courses you want from QUEST."),
-    keywords=['uwaterloo',
-              'course',
-              'courses',
-          ],
-
-    packages=find_packages(),
-    entry_points={'console_scripts': ['addcourse = addcourse.main:main']},
-
-    platforms=['Any'],
-    classifiers=[
-        'Development Status :: 4 - Beta',
-        'Environment :: Console',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
-        'Operating System :: OS Independent',
-        'Natural Language :: English',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
+    name='uwaterloo-addcourse',
+    version=__version__,
+    author='Kieran Colford',
+    author_email='colfordk@gmail.com',
+    url='https://github.com/kcolford/uwaterloo-addcourse',
+    license='GPLv3+',
+    description=__doc__,
+    long_description=long_description,
+    keywords=[
+        'uwaterloo',
+        'addcourse',
     ],
-
-    requires=['beautifulsoup4'],
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Console',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+    ],
+    platforms=['Any'],
+    packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'addcourse = addcourse.main:main',
+        ],
+    },
+    install_requires=[
+        'beautifulsoup4>=4.2.0',
+    ],
+    use_2to3=True,
 )
