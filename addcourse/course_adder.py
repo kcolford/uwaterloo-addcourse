@@ -98,7 +98,7 @@ class AddCourse(AddPage):
             raise TypeError("course is not a list or str")
 
         self.get_add()
-        "Navigated to Add page, begining reqests."
+        print "Navigated to Add page, begining reqests."
 
         for i in itertools.count():
             for cls in class_numbers:
