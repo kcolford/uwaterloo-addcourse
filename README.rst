@@ -7,6 +7,10 @@ of Waterloo's QUEST_ system to easily add a course.  It does so by
 continuously querying the QUEST_ servers to add you into the given
 course until it succeeds.
 
+Both Python 2 and Python 3 are supported, although Python 3 support
+requires ``2to3`` but that will be handled automatically by
+``setup.py`` on installation.
+
 Install
 =======
 
