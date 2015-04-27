@@ -54,6 +54,8 @@ like so::
   Password: 
   ...
 
+For command line arguments, see ``addcourse --help``.
+
 Python Interpreter
 ------------------
 
