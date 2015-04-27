@@ -37,6 +37,9 @@ setup(
             'addcourse = addcourse.main:main',
         ],
     },
+    setup_requires=[
+        'xdistutils>=0.2',
+    ],
     install_requires=[
         'beautifulsoup4>=4.2.0',
     ],
