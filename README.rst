@@ -41,7 +41,6 @@ You can use ``pip`` to install this package with just::
 You can also navigate to our `PyPi page`_ and choose one of the
 download links at the bottom.
 
-
 Usage
 =====
 
