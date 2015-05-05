@@ -22,6 +22,7 @@
 """Class that interacts with the QUEST course add page."""
 
 
+import re
 from .browser import QuestBrowser
 
 
@@ -31,14 +32,19 @@ class AddPage(QuestBrowser):
     def get_add(self):
         """Go to the enrollment page."""
 
+        # Select the enroll page.
         self.do_action('DERIVED_SSS_SCR_SSS_LINK_ANCHOR3')
 
+        # Select the add tab.
         add_link = self.page.find(text='add').parent
         self.make_request(add_link['href'])
         self.get_page()
 
-        self.do_action('DERIVED_SSS_SCT_SSR_PB_GO',
-                       {'SSR_DUMMY_RECV1$sels$0': "1"})
+        # Select the upcomming term if the option is given.
+        t = self.page.find(text=term_regex)
+        if t and t.parent.name == 'span':
+            self.do_action('DERIVED_SSS_SCT_SSR_PB_GO',
+                           {'SSR_DUMMY_RECV1$sels$0': "1"})
 
     def setup_post(self):
         """Setup a POST request from QUEST."""
@@ -57,3 +63,4 @@ class AddPage(QuestBrowser):
 
 
 enroll_add_page = '/psc/AS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL'
+term_regex = re.compile(r'^(Winter|Spring|Fall) [[:digit:]]{4}$')
