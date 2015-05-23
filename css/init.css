@@ -12,3 +12,7 @@ body {
 blockquote:before {
     content: "";
 }
+
+header {
+    text-align: center;
+}
