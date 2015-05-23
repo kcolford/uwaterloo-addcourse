@@ -1,24 +1,7 @@
 /* Stylesheet specifically for the addcourse page. */
 
-p { margin-bottom: 10px; }
-/* body > .section { display: block; } */
-.literal-block { 
-    line-height: 1em;
-    margin-bottom: 15px;
-}
-body {
-    color: #000;
-}
-blockquote:before {
-    content: "";
-}
-
-header {
-    vertical-align: center;
-}
-header .row {
-    text-align: center;
-}
-div#headskip {
-    padding-top: 20%;
-}
+p,pre { margin-bottom: 10px; }
+body { color: #000; }
+blockquote:before { content: ""; }
+header .row { text-align: center; }
+div#headskip { padding-top: 20%; }
