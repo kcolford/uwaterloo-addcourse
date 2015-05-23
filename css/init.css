@@ -18,4 +18,8 @@ header {
 }
 header .row {
     text-align: center;
- }
+}
+.headskip {
+    display: block;
+    margin: auto 30%;
+}
