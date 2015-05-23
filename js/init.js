@@ -5,8 +5,6 @@ jQuery(document).ready(function ($) {
 
   $("section#credits").changeElementType("footer");
 
-  $("section > *").each(function() {
-    $(this).replaceWith("<div class=\"row\">" + $(this).text() + "</div>");
-  });
+  $("section").wrapInner("<div class='row'></div>");
 
 });
