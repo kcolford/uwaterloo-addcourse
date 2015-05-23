@@ -53,10 +53,10 @@ def main():
 
     args = parser.parse_args()
 
-    course = args['course']
+    course = args.course
     if not course:
         course = raw_input('Desired Course: ')
-    user = args['userid']
+    user = args.userid
     if not user:
         user = raw_input('QUEST ID: ')
     password = getpass.getpass('Password: ')
