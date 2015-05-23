@@ -2,4 +2,4 @@
 
 jQuery(document).ready(function ($) {
   $("body > div.section").changeElementType("section");
-}
+});
