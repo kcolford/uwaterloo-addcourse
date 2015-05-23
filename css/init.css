@@ -13,8 +13,9 @@ blockquote:before {
     content: "";
 }
 
-header .row {
-    max-width: 1024px;
-    text-align: center;
+header {
     vertical-align: center;
 }
+header .row {
+    text-align: center;
+ }
