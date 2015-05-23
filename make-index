@@ -1,6 +1,12 @@
 #!/bin/sh
 
-rst2html.py                                                     \
-    --link-stylesheet                                           \
-    --stylesheet=/css/default.css,html4css1.css,math.css        \
-    README.rst > index.html
+bootstrap_css="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+bootstrap_js="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
+jquery_js="//code.jquery.com/jquery-1.11.3.min.js"
+
+python -m rst2html5                             \
+    --stylesheet=$bootstrap_css                 \
+    --stylesheet=/css/default.css               \
+    --script=$jquery_js                         \
+    --script=$bootstrap_js                      \
+    README.rst index.html
