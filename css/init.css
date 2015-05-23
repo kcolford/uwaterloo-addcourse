@@ -2,4 +2,7 @@
 
 p { margin-bottom: 10px; }
 /* body > .section { display: block; } */
-.literal-block { line-height: 100%; }
+.literal-block { 
+    line-height: 100%;
+    margin-bottom: 10px;
+}
