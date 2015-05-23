@@ -19,6 +19,6 @@ header {
 header .row {
     text-align: center;
 }
-#headskip {
+div#headskip {
     padding-top: 20%;
 }
