@@ -14,5 +14,6 @@ blockquote:before {
 }
 
 header {
+    max-width: 1024px;
     text-align: center;
 }
