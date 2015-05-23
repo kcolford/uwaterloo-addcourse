@@ -6,3 +6,6 @@ p { margin-bottom: 10px; }
     line-height: 100%;
     margin-bottom: 10px;
 }
+body {
+    color: 0xfff;
+}
