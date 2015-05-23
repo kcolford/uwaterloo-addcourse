@@ -1,6 +1,5 @@
 #!/bin/sh
 
-python -m rst2html5                             \
-    --traceback                                 \
+rst2html.py                                     \
     --template=index-template.html              \
     README.rst index.html

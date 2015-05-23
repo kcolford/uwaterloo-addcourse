@@ -1,135 +1,210 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
-    <title>UWaterloo AddCourse</title>
-    <meta charset="utf-8" />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>UWaterloo AddCourse</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="addcourse.css">
-    <style>
-
-    </style>
   </head>
   <body>
-    
-    <h1>UWaterloo AddCourse</h1>
-    <p>This python package allows one to easily interact with the University of Waterloo's <a href="https://uwaterloo.ca/quest/">QUEST</a> system to easily add a course. It does so by continuously querying the <a href="https://uwaterloo.ca/quest/">QUEST</a> servers to add you into the given course until it succeeds.</p>
-    <p>Both Python 2 and Python 3 are supported, although Python 3 support requires <code>2to3</code> but that will be handled automatically by <code>setup.py</code> on installation.</p>
-    <section id="install">
-        <h2>Install</h2>
-        <p>There are currently two resources from which you can install UWaterloo AddCourse: the first is directly from the repository and the second is from <a href="https://pypi.python.org/">PyPi</a>.</p>
-        <section id="the-repository">
-            <h3>The <a href="https://github.com/kcolford/uwaterloo-addcourse">Repository</a></h3>
-            <p>You can install this package from source using:</p>
-            <pre>git clone https://github.com/kcolford/uwaterloo-addcourse.git
+    <heading>
+      <h1 class="title">UWaterloo AddCourse</h1>
+    </heading>
+
+    <p>This python package allows one to easily interact with the University
+of Waterloo's <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a> system to easily add a course.  It does so by
+continuously querying the <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a> servers to add you into the given
+course until it succeeds.</p>
+<p>Both Python 2 and Python 3 are supported, although Python 3 support
+requires <tt class="docutils literal">2to3</tt> but that will be handled automatically by
+<tt class="docutils literal">setup.py</tt> on installation.</p>
+<div class="section" id="install">
+<h1>Install</h1>
+<p>There are currently two resources from which you can install UWaterloo
+AddCourse: the first is directly from the repository and the second is
+from <a class="reference external" href="https://pypi.python.org/">PyPi</a>.</p>
+<div class="section" id="the-repository">
+<h2>The <a class="reference external" href="https://github.com/kcolford/uwaterloo-addcourse">Repository</a></h2>
+<p>You can install this package from source using:</p>
+<pre class="literal-block">
+git clone https://github.com/kcolford/uwaterloo-addcourse.git
 cd uwaterloo-addcourse
-python setup.py install</pre>
-            <p>Note that when you install in this way, you will be getting the development version, not the official stable release (although it should still work as documented).</p>
-        </section>
-        <section id="pypi">
-            <h3><a href="https://pypi.python.org/">PyPi</a></h3>
-            <p>Using <code>easy_install</code>, you just have to invoke:</p>
-            <pre>easy_install uwaterloo-addcourse</pre>
-            <p>You can use <code>pip</code> to install this package with just:</p>
-            <pre>pip install uwaterloo-addcourse</pre>
-            <p>You can also navigate to our <a href="https://pypi.python.org/pypi/uwaterloo-addcourse">PyPi page</a> and choose one of the download links at the bottom.</p>
-        </section>
-    </section>
-    <section id="usage">
-        <h2>Usage</h2>
-        <p>There are two ways to use this API: the command line and the python interpreter. Note that when using the interpreter, you have more control over the queries you would have when using the command line. Although the command line is far more user friendly.</p>
-        <section id="command-line">
-            <h3>Command Line</h3>
-            <p>To add a class from the command line, simply invoke the helper script like so:</p>
-            <pre>user@computer:~/$ addcourse
+python setup.py install
+</pre>
+<p>Note that when you install in this way, you will be getting the
+development version, not the official stable release (although it
+should still work as documented).</p>
+</div>
+<div class="section" id="pypi">
+<h2><a class="reference external" href="https://pypi.python.org/">PyPi</a></h2>
+<p>Using <tt class="docutils literal">easy_install</tt>, you just have to invoke:</p>
+<pre class="literal-block">
+easy_install uwaterloo-addcourse
+</pre>
+<p>You can use <tt class="docutils literal">pip</tt> to install this package with just:</p>
+<pre class="literal-block">
+pip install uwaterloo-addcourse
+</pre>
+<p>You can also navigate to our <a class="reference external" href="https://pypi.python.org/pypi/uwaterloo-addcourse">PyPi page</a> and choose one of the
+download links at the bottom.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h1>Usage</h1>
+<p>There are two ways to use this API: the command line and the python
+interpreter.  Note that when using the interpreter, you have more
+control over the queries you would have when using the command line.
+Although the command line is far more user friendly.</p>
+<div class="section" id="command-line">
+<h2>Command Line</h2>
+<p>To add a class from the command line, simply invoke the helper script
+like so:</p>
+<pre class="literal-block">
+user&#64;computer:~/$ addcourse
 Desired Course: cs246
 QUEST ID: jsmith
 Password:
-...</pre>
-            <p>Optional command line arguments to <code>addcourse</code> are as follows</p>
-            <blockquote>
-                <table class="option_list">
-                    <tbody>
-                        <tr>
-                            <td><kbd>-h</kbd>, <kbd>--help</kbd></td>
-                            <td>show this help message and exit</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>--version</kbd></td>
-                            <td>show program's version number and exit</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>-c <var>COURSE</var></kbd>, <kbd>--course <var>COURSE</var></kbd></td>
-                            <td>the course to try getting in to</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>-u <var>USERID</var></kbd>, <kbd>--userid <var>USERID</var></kbd></td>
-                            <td>the userid to login as</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </blockquote>
-        </section>
-        <section id="python-interpreter">
-            <h3>Python Interpreter</h3>
-            <p>Simply write a script like so:</p>
-            <pre>#! /usr/bin/env python
+...
+</pre>
+<p>Optional command line arguments to <tt class="docutils literal">addcourse</tt> are as follows</p>
+<blockquote>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>show this help message and exit</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--version</span></kbd></td>
+<td>show program's version number and exit</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-c <var>COURSE</var></span>, <span class="option">--course <var>COURSE</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>the course to try getting in to</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-u <var>USERID</var></span>, <span class="option">--userid <var>USERID</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>the userid to login as</td></tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="section" id="python-interpreter">
+<h2>Python Interpreter</h2>
+<p>Simply write a script like so:</p>
+<pre class="literal-block">
+#! /usr/bin/env python
 
 from addcourse import *
 
-addcourse('jsmith', 'password123', numbers('cs246'))</pre>
-            <p>Note that the call to <code>numbers</code> fetches a list of class numbers that correspond to the given course code (in this case <code>'cs246'</code>). You can then use a splicing or other list manipulations to delete classes you don't want or add alternative classes that you do want. See <code>pydoc addcourse</code> for more information.</p>
-        </section>
-    </section>
-    <section id="development">
-        <h2>Development</h2>
-        <p>Development on UWaterloo AddCourse is relatively simple. We use <a href="https://github.com">GitHub</a> and so all additions or improvements should be done through a pull request. Improvements of any kind will be gladly accepted.</p>
-        <p>Our current direction is looking into the following:</p>
-        <ul>
-            <li>Extending the utility offered by the <code>QuestBrowser</code> class to then use for other purposes including:
-                <ul>
-                    <li>A better user interface for using any feature of <a href="https://uwaterloo.ca/quest/">QUEST</a>.</li>
-                </ul>
-            </li>
-            <li>Incorporating a javascript interpreter to allow us to easily function even after changes to <a href="https://uwaterloo.ca/quest/">QUEST</a> are made.</li>
-            <li>Making asynchronous queries to <a href="https://uwaterloo.ca/quest/">QUEST</a> to do multiple things at once instead of just waiting for each query to slowly complete. Current issues surrounding this include:
-                <ul>
-                    <li>urllib is currently only synchronous, no asynchronous API is currently available at the time of this writing, possible solutions include:
-                        <ol type="1">
-                            <li>Locating an asynchronous fork of urllib (possibly on <a href="https://pypi.python.org/">PyPi</a>).</li>
-                            <li>Rolling our own asynchronous urllib fork (we could host it separately on <a href="https://pypi.python.org/">PyPi</a>).</li>
-                            <li>Taking the source of urllib and refactoring it to only use the asynchronous IO interfaces instead of the synchronous ones (even just using <strong>select</strong> based IO can be a great improvement).</li>
-                            <li>Using <strong>threading</strong> because although the <a href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> (Global Interpreter Lock) prevents speed ups of python code, it does allow switching from one execution context to another when a thread blocks on IO. This would effectively simulate option 3 but with the select loop running in kernelspace rather than in application code.</li>
-                        </ol>
-                        <p>Of the aforementioned options, number 4 seems to be the most promising although introducing full threading is always a mixed bag of good and bad.</p>
-                    </li>
-                    <li>Refactoring will/may have to be done in order to improve thread safety.</li>
-                </ul>
-            </li>
-            <li>Adding a command line option for a password. This is inherently unsafe as there are many distributions and installations of <code>ps</code> that allow viewing of the command line arguments given to a process by other users. That being said, it does make it very inconvenient for a user who wants to script the command line invocations of <code>addcourse</code> as they have to sit there and type in their password each time the command runs.</li>
-            <li>We need to set up automated testing and incorporate continuous integration systems like <a href="https://travis-ci.org/">travisCI</a>. Problems that interfere with this currently are:
-                <ul>
-                    <li>We need a dummy <a href="https://uwaterloo.ca/quest/">QUEST</a> login to test with because no one is going to leave their real <a href="https://uwaterloo.ca/quest/">QUEST</a> user id and password in the repository for any one to steal and mess with. Also, the tests might mess up the account and that would be really bad if someone didn't get their degree because of a typo made in a pull request.</li>
-                </ul>
-            </li>
-            <li>Finer control of progress messages and reports. Currently we just use python's <code>print</code> statement to output messages to the user, but we may want to move towards the <code>logging</code> module in the builtin library. Note that originally, that was what we used, but the logging module proved to difficult and unwieldy to continue with.
-                <p>Moving in this direction will allow us to control the verbosity of the API through setting the loglevel.</p>
-            </li>
-        </ul>
-    </section>
-    <section id="license-and-disclaimer">
-        <h2>License and Disclaimer</h2>
-        <p>Copyright (C) 2015 Kieran Colford</p>
-        <p>This file is part of UWaterloo-AddCourse.</p>
-        <p>UWaterloo-AddCourse is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
-        <p>UWaterloo-AddCourse is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
-        <p>You should have received a copy of the GNU General Public License along with UWaterloo-AddCourse. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
-    </section>
-    <section id="credits">
-        <h2>Credits</h2>
-        <pre class="line_block">Mark Petrick, for the support that inspired this project.</pre>
-    </section>
-
+addcourse('jsmith', 'password123', numbers('cs246'))
+</pre>
+<p>Note that the call to <tt class="docutils literal">numbers</tt> fetches a list of class numbers that
+correspond to the given course code (in this case <tt class="docutils literal">'cs246'</tt>).  You
+can then use a splicing or other list manipulations to delete classes
+you don't want or add alternative classes that you do want.  See
+<tt class="docutils literal">pydoc addcourse</tt> for more information.</p>
+</div>
+</div>
+<div class="section" id="development">
+<h1>Development</h1>
+<p>Development on UWaterloo AddCourse is relatively simple.  We use
+<a class="reference external" href="https://github.com">GitHub</a> and so all additions or improvements should be done through a
+pull request.  Improvements of any kind will be gladly accepted.</p>
+<p>Our current direction is looking into the following:</p>
+<ul>
+<li><p class="first">Extending the utility offered by the <tt class="docutils literal">QuestBrowser</tt> class to then
+use for other purposes including:</p>
+<ul class="simple">
+<li>A better user interface for using any feature of <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a>.</li>
+</ul>
+</li>
+<li><p class="first">Incorporating a javascript interpreter to allow us to easily
+function even after changes to <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a> are made.</p>
+</li>
+<li><p class="first">Making asynchronous queries to <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a> to do multiple things at once
+instead of just waiting for each query to slowly complete.  Current
+issues surrounding this include:</p>
+<ul>
+<li><p class="first">urllib is currently only synchronous, no asynchronous API is
+currently available at the time of this writing, possible
+solutions include:</p>
+<ol class="arabic simple">
+<li>Locating an asynchronous fork of urllib (possibly on <a class="reference external" href="https://pypi.python.org/">PyPi</a>).</li>
+<li>Rolling our own asynchronous urllib fork (we could host it
+separately on <a class="reference external" href="https://pypi.python.org/">PyPi</a>).</li>
+<li>Taking the source of urllib and refactoring it to only use the
+asynchronous IO interfaces instead of the synchronous ones
+(even just using <strong>select</strong> based IO can be a great
+improvement).</li>
+<li>Using <strong>threading</strong> because although the <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> (Global
+Interpreter Lock) prevents speed ups of python code, it does
+allow switching from one execution context to another when a
+thread blocks on IO.  This would effectively simulate option 3
+but with the select loop running in kernelspace rather than in
+application code.</li>
+</ol>
+<p>Of the aforementioned options, number 4 seems to be the most
+promising although introducing full threading is always a mixed
+bag of good and bad.</p>
+</li>
+<li><p class="first">Refactoring will/may have to be done in order to improve thread
+safety.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Adding a command line option for a password.  This is inherently
+unsafe as there are many distributions and installations of <tt class="docutils literal">ps</tt>
+that allow viewing of the command line arguments given to a process
+by other users.  That being said, it does make it very inconvenient
+for a user who wants to script the command line invocations of
+<tt class="docutils literal">addcourse</tt> as they have to sit there and type in their password
+each time the command runs.</p>
+</li>
+<li><p class="first">We need to set up automated testing and incorporate continuous
+integration systems like <a class="reference external" href="https://travis-ci.org/">travisCI</a>.  Problems that interfere with
+this currently are:</p>
+<ul class="simple">
+<li>We need a dummy <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a> login to test with because no one is going
+to leave their real <a class="reference external" href="https://uwaterloo.ca/quest/">QUEST</a> user id and password in the repository
+for any one to steal and mess with.  Also, the tests might mess up
+the account and that would be really bad if someone didn't get
+their degree because of a typo made in a pull request.</li>
+</ul>
+</li>
+<li><p class="first">Finer control of progress messages and reports.  Currently we just
+use python's <tt class="docutils literal">print</tt> statement to output messages to the user, but
+we may want to move towards the <tt class="docutils literal">logging</tt> module in the builtin
+library.  Note that originally, that was what we used, but the
+logging module proved to difficult and unwieldy to continue with.</p>
+<p>Moving in this direction will allow us to control the verbosity of
+the API through setting the loglevel.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="license-and-disclaimer">
+<h1>License and Disclaimer</h1>
+<p>Copyright (C) 2015 Kieran Colford</p>
+<p>This file is part of UWaterloo-AddCourse.</p>
+<p>UWaterloo-AddCourse is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.</p>
+<p>UWaterloo-AddCourse is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with UWaterloo-AddCourse.  If not, see
+<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+</div>
+<div class="section" id="credits">
+<h1>Credits</h1>
+<div class="line-block">
+<div class="line">Mark Petrick, for the support that inspired this project.</div>
+</div>
+</div>
   </body>
 </html>
