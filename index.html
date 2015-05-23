@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    
     <title>UWaterloo AddCourse</title>
     <meta charset="utf-8" />
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/css/default.css" rel="stylesheet" />
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</head>
-<body>
+
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/layout.css">
+  </head>
+  <body id="projects">
+    
     <h1>UWaterloo AddCourse</h1>
     <p>This python package allows one to easily interact with the University of Waterloo's <a href="https://uwaterloo.ca/quest/">QUEST</a> system to easily add a course. It does so by continuously querying the <a href="https://uwaterloo.ca/quest/">QUEST</a> servers to add you into the given course until it succeeds.</p>
     <p>Both Python 2 and Python 3 are supported, although Python 3 support requires <code>2to3</code> but that will be handled automatically by <code>setup.py</code> on installation.</p>
@@ -126,5 +127,6 @@ addcourse('jsmith', 'password123', numbers('cs246'))</pre>
         <h2>Credits</h2>
         <pre class="line_block">Mark Petrick, for the support that inspired this project.</pre>
     </section>
-</body>
+
+  </body>
 </html>
