@@ -2,11 +2,7 @@
 
 jQuery(document).ready(function ($) {
   $("body > div.section").changeElementType("section");
-
-  $("section#credits").changeElementType("footer");
-
   $("body > :not(section)").wrapAll("<header></header>");
-
-  $("section").wrapInner("<div class='row'></div>");
-
+  $("section#credits").changeElementType("footer");
+  $("section,header,footer").wrapInner("<div class='row'></div>");
 });
