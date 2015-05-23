@@ -13,7 +13,8 @@ blockquote:before {
     content: "";
 }
 
-header {
+header .row {
     max-width: 1024px;
     text-align: center;
+    vertical-align: center;
 }
