@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rst2html.py                                                     \
+    --link-stylesheet                                           \
+    --stylesheet=/css/default.css,html4css1.css,math.css        \
+    README.rst > index.html
