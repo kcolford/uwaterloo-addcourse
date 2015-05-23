@@ -5,6 +5,8 @@ jQuery(document).ready(function ($) {
 
   $("section#credits").changeElementType("footer");
 
+  $("body > p").appendTo("header");
+
   $("section").wrapInner("<div class='row'></div>");
 
 });
