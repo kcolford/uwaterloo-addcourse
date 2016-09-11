@@ -38,7 +38,13 @@ def numbers(course):
     """Return a list of class numbers corresponding to course."""
 
     subject, number = re.findall(r'[a-zA-Z]+|[0-9]+', course)
-    query = {'level': 'under',
+    if int(number) < 500:
+        level = 'under'
+    else:
+        level = 'grad'
+
+
+    query = {'level': level,
              'sess': nearest_term(),
              'subject': subject.upper(),
              'cournum': number}
