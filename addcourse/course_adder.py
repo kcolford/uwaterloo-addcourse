@@ -23,6 +23,7 @@
 
 
 import itertools
+import time
 from .class_numbers import numbers
 from .addpage import AddPage
 from .preview import preview_page
@@ -87,7 +88,7 @@ class AddCourse(AddPage):
 
         self.do_action('P_DELETE$0')
 
-    def run(self, course):
+    def run(self, course, throttle, repeat):
         """Keep requesting the class we want from QUEST."""
 
         if isinstance(course, str):
@@ -98,7 +99,7 @@ class AddCourse(AddPage):
             raise TypeError("course is not a list or str")
 
         self.get_add()
-        print "Navigated to Add page, begining reqests."
+        print "Navigated to Add page, beginning requests."
 
         for i in itertools.count():
             for cls in class_numbers:
@@ -112,14 +113,16 @@ class AddCourse(AddPage):
                         else:
                             print "Attempt", i * repeat + j + 1, "on class", cls, "Failed."
                 finally:
+                    time.sleep(throttle)
                     self.clear_class()
 
 
-def addcourse(user, password, course):
+
+def addcourse(user, password, course, throttle, repeat):
     """Run the QuestBrowser and get into the course we need."""
 
     try:
-        AddCourse(user, password).run(course)
+        AddCourse(user, password).run(course, throttle, repeat)
     except Error as e:
         print >> sys.stderr, e
         raw_input("Press Enter to continue...")
@@ -128,4 +131,3 @@ def addcourse(user, password, course):
 
 has_class_message = 'This class is already in your Shopping Cart.  Try another.'
 select_tut_message = 'Select TUT - Tutorial section (Required):'
-repeat = 2

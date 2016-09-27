@@ -50,6 +50,10 @@ def main():
                         help='the course to try getting in to')
     parser.add_argument('-u', '--userid', action='store',
                         help='the userid to login as')
+    parser.add_argument('-t', '--throttle', type=int,
+                        default=0, help='number of seconds between batches of enroling requests - defaults to 0')
+    parser.add_argument('-r', '--repeat', type=int,
+                        default=2, help='number of enroling requests per batch - defaults to 2')
 
     args = parser.parse_args()
 
@@ -60,4 +64,4 @@ def main():
     if not user:
         user = raw_input('QUEST ID: ')
     password = getpass.getpass('Password: ')
-    addcourse(user, password, course)
+    addcourse(user, password, course, args.throttle, args.repeat)
