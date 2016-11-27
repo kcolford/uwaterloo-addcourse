@@ -30,6 +30,9 @@ except ImportError:
 from .course_adder import addcourse
 from . import __version__
 
+DEFAULT_THROTTLE = 0
+DEFAULT_REPEAT = 2
+
 
 def main():
     """Main function."""
@@ -51,9 +54,9 @@ def main():
     parser.add_argument('-u', '--userid', action='store',
                         help='the userid to login as')
     parser.add_argument('-t', '--throttle', type=int,
-                        default=0, help='number of seconds between batches of enroling requests - defaults to 0')
+                        default=DEFAULT_THROTTLE, help='number of seconds between batches of enroling requests - defaults to %s' % DEFAULT_THROTTLE)
     parser.add_argument('-r', '--repeat', type=int,
-                        default=2, help='number of enroling requests per batch - defaults to 2')
+                        default=DEFAULT_REPEAT, help='number of enroling requests per batch - defaults to %s' % DEFAULT_REPEAT)
 
     args = parser.parse_args()
 
